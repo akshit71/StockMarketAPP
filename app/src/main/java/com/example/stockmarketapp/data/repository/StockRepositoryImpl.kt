@@ -4,6 +4,7 @@ import android.net.http.HttpException
 import com.example.stockmarketapp.data.csv.CSVParser
 import com.example.stockmarketapp.data.local.StockDatabase
 import com.example.stockmarketapp.data.mapper.toCompanyListing
+import com.example.stockmarketapp.data.mapper.toCompanyListingEntity
 import com.example.stockmarketapp.data.remote.dto.StockApi
 import com.example.stockmarketapp.domain.model.CompanyListing
 import com.example.stockmarketapp.domain.repository.StockRepository
@@ -51,9 +52,15 @@ class StockRepositoryImpl @Inject constructor(
                 emit(Resource.Error("Couldn't load data"))
                 null
             }
-
             remoteListings?.let {listings->
+                dao.clearCompanyListings()
+                dao.insertComapnyListings(
+                    listings.map {
+                        it.toCompanyListingEntity()
+                    }
+                )
                 emit(Resource.Success(listings))
+                emit(Resource.Loading(false))
 
             }
 

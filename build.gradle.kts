@@ -1,6 +1,13 @@
 buildscript {
     extra.apply{
-         set("compose_version" , "1.1.0")
+         set("compose_version" , "1.5.1")
+        set("compose_coil" , "2.4.0")
+        set("compose_nav_version" ,"2.5.3")
+        set("compose_compiler_version" , "1.2.0")
+        set("hilt_version" ,"2.46.1")
+        set("hilt_navigation","1.0.0")
+        set("compose_constraint" ,"1.0.1")
+        set("lifecycle_version" ,"2.4.0")
     }
     dependencies {
         classpath("com.google.dagger:hilt-android-gradle-plugin:2.40.5")

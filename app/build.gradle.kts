@@ -65,6 +65,11 @@ android {
 
 dependencies {
     val compose_version = rootProject.extra["compose_version"]
+    val compose_coil=rootProject.extra["compose_coil"]
+    val lifecycle_version=rootProject.extra["lifecycle_version"]
+    val compose_nav_version=rootProject.extra["compose_nav_version"]
+    val compose_constraint=rootProject.extra["compose_constraint"]
+
     implementation ("androidx.core:core-ktx:1.7.0")
     implementation ("androidx.compose.ui:ui:$compose_version")
     implementation ("androidx.compose.material:material:$compose_version")
@@ -82,15 +87,20 @@ dependencies {
     implementation ("com.opencsv:opencsv:5.5.2")
 
     // Compose dependencies
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
-    implementation ("androidx.compose.material:material-icons-extended:$compose_version")
-    implementation ("com.google.accompanist:accompanist-flowlayout:0.17.0")
-    implementation ("androidx.paging:paging-compose:1.0.0-alpha14")
-    implementation ("androidx.activity:activity-compose:1.6.0-alpha01")
-    implementation ("com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha")
+    implementation("com.google.android.material:compose-theme-adapter:1.1.10")
+    implementation("androidx.compose.ui:ui:$compose_version")
+    implementation("androidx.compose.ui:ui-tooling:$compose_version")
+    implementation("androidx.compose.material:material:$compose_version")
+    implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
+    implementation("androidx.activity:activity-compose:1.5.1")
+    implementation("androidx.compose.runtime:runtime-livedata:$compose_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+    implementation("androidx.compose.material:material-icons-extended:$compose_version")
+    implementation("io.coil-kt:coil-compose:$compose_coil")
+    implementation("io.coil-kt:coil-svg:$compose_coil")
+    implementation("androidx.navigation:navigation-compose:$compose_nav_version")
+    implementation ("androidx.constraintlayout:constraintlayout-compose:$compose_constraint")
 
-    // Compose Nav Destinations
-    implementation ("io.github.raamcosta.compose-destinations:core:1.1.2-beta")
 //    ksp ("io.github.raamcosta.compose-destinations:ksp:1.1.2-beta")
 
     // Coil
