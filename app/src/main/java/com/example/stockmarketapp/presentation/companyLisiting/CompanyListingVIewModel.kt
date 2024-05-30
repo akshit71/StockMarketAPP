@@ -24,6 +24,10 @@ class CompanyListingVIewModel @Inject constructor(
 
     var state by mutableStateOf(CompanyListingState())
     var searchJob: Job?=null
+
+    init {
+        getCompanyListing()
+    }
     fun onEvent(event :CompanyListingEvent){
         when(event){
             is CompanyListingEvent.Refresh ->{
